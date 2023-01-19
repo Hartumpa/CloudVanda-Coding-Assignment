@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment1_b</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      button {
+        appearance: none;
+        background-color: transparent;
+        border: 2px solid #1a1a1a;
+        border-radius: 15px;
+        box-sizing: border-box;
+        color: #3b3b3b;
+        cursor: pointer;
+        display: inline-block;
+        font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        font-size: 16px;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0;
+        min-height: 60px;
+        min-width: 0;
+        outline: none;
+        padding: 16px 24px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 15%;
+        will-change: transform;
+      }
+
+      button:disabled {
+        pointer-events: none;
+      }
+
+      button:hover {
+        color: #fff;
+        background-color: #1a1a1a;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+      }
+
+      button:active {
+        box-shadow: none;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <table id="myTable">
+      <tr>
+        <th>SL.No.</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+    </table>
+
+    <button id="addRowBottom" onclick="addRowToBottom()">
+      Add row to bottom
+    </button>
+    <button id="addRowTop" onclick="addRowToTop()">Add row to top</button>
+  </body>
+</html>
+<script>
+  function updateSerialNumber() {
+    for (let i = 1; i < myTable.rows.length; i++) {
+      myTable.rows[i].cells[0].innerHTML = i;
+    }
+  }
+
+  function addRowToBottom() {
+    // Create a new table row
+    const newRow = myTable.insertRow(-1);
+
+    // Insert cells into the new row
+    const serialNumberCell = newRow.insertCell(0);
+    const firstNameCell = newRow.insertCell(1);
+    const lastNameCell = newRow.insertCell(2);
+    const cityCell = newRow.insertCell(3);
+    const countryCell = newRow.insertCell(4);
+
+    // Set the values of the cells
+    serialNumberCell.innerHTML = myTable.rows.length;
+    firstNameCell.innerHTML = "Ram";
+    lastNameCell.innerHTML = "Musk";
+    cityCell.innerHTML = "New York";
+    countryCell.innerHTML = "United States";
+    updateSerialNumber();
+  }
+
+  function addRowToTop() {
+    // Create a new table row
+    const newRow = myTable.insertRow(1);
+
+    // Insert cells into the new row
+    const serialNumberCell = newRow.insertCell(0);
+    const firstNameCell = newRow.insertCell(1);
+    const lastNameCell = newRow.insertCell(2);
+    const cityCell = newRow.insertCell(3);
+    const countryCell = newRow.insertCell(4);
+
+    // Set the values of the cells
+    firstNameCell.innerHTML = "Krishna";
+    lastNameCell.innerHTML = "Smith";
+    cityCell.innerHTML = "London";
+    countryCell.innerHTML = "United Kingdom";
+    updateSerialNumber();
+  }
+</script>
