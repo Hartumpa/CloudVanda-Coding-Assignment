@@ -5,17 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment2_c</title>
+    <style>
+      button {
+        background: transparent;
+        padding: 0.5rem 0.2rem;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        width: 9rem;
+        font-size: 1rem;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+      input {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.9rem;
+        outline: none;
+        border-radius: 0.2rem;
+        border: 1.5px solid black;
+      }
+      input:focus{
+        border: 1.5px solid rgb(88, 158, 250);
+      }
+      form{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      form div{
+        display: flex;
+        width: 22%;
+        align-items: center;
+        justify-content: space-between;
+      }
+    </style>
   </head>
   <body>
     <form>
-      <label>Enter a Sentence:</label>
-      <input type="text" id="sentence" placeholder="Any English sentence"/>
-      <br />
-      <label>Enter a Letter:</label>
-      <input type="text" id="letter" placeholder="Any letter from A to Z"/>
-      <br />
+      <div>
+        <label>Enter a Sentence:</label>
+        <input type="text" id="sentence" placeholder="Any English sentence" />
+      </div>
+      <div>
+        <label>Enter a Letter:</label>
+        <input type="text" id="letter" placeholder="Any letter from A to Z" />
+      </div>
       <button type="button" onclick="findLetter()">Submit</button>
-      <br />
       <p id="output"></p>
     </form>
   </body>
@@ -26,7 +62,8 @@
     let letter = document.getElementById("letter").value;
     let index = sentence.indexOf(letter);
     let output = document.getElementById("output");
-    if (index === -1) {
+    console.log(letter,'letter')
+    if (index === -1 || letter=='') {
       output.innerHTML = "The letter does not exist in the sentence.";
     } else {
       output.innerHTML = sentence.substring(index + 1);

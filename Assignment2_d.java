@@ -8,7 +8,7 @@ public class Assignment2_d {
         System.out.print("Enter a Letter: ");
         String letter = scanner.nextLine();
         int index = sentence.indexOf(letter);
-        if (index == -1) {
+        if (index == -1 || letter=="") {
             System.out.println("The letter does not exist in the sentence.");
         } else {
             System.out.println("The rest of the sentence after the first occurrence of the letter: " + sentence.substring(index + 1));
